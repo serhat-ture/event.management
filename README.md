@@ -4,10 +4,13 @@
  Authorization işlemi (login) yaptırınız.\
 Aşağıda User classının sahip olması gereken fiedler mevcuttur.\
 name\
-email password(encryption)\
+email \
+password(encryption)\
 
 Aşağıda Event classının sahip olması gereken fiedler mevcuttur.\
-etkinlik adı başlangıç tarihi bitiş tarihi\
+etkinlik adı\
+başlangıç tarihi \
+bitiş tarihi\
 kota\
 katılımcı sayısı
 
