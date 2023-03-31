@@ -1,6 +1,7 @@
 package com.blc.eventManagement.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,17 +14,19 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "persons")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-       private Long id;
+    private Long id;
+
     private String name;
     private String email;
     private String password;
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true )
+    @JsonIgnore
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true )
            private Set<Event> events = new HashSet<>();
 
 }

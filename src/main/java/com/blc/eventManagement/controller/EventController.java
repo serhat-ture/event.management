@@ -15,38 +15,38 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PostMapping("/users/{userId}/events")
-    public ResponseEntity<EventDto> createEvent(@PathVariable(value = "userId") Long userId,
+    @PostMapping("/persons/{personId}/events")
+    public ResponseEntity<EventDto> createEvent(@PathVariable(value = "personId") Long personId,
                                                     @RequestBody EventDto eventDto) {
-        return new ResponseEntity<>(eventService.createEvent(userId, eventDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(eventService.createEvent(personId, eventDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/users/{userId}/events")
-    public List<EventDto> getEventsById(@PathVariable(value = "userId") Long userId) {
-        return eventService.getEventsByUserId(userId);
+    @GetMapping("/persons/{personId}/events")
+    public List<EventDto> getEventsByPersonId(@PathVariable(value = "personId") Long personId) {
+        return eventService.getEventsByPersonId(personId);
 
     }
 
-    @GetMapping("/users/{userId}/events/{id}")
-    public ResponseEntity<EventDto> getEventById(@PathVariable(value = "userId") Long userId,
+    @GetMapping("/persons/{personId}/events/{id}")
+    public ResponseEntity<EventDto> getEventById(@PathVariable(value = "personId") Long personId,
                                                      @PathVariable(value = "id") Long eventId) {
-        EventDto eventDto = eventService.getEventById(userId, eventId);
+        EventDto eventDto = eventService.getEventById(personId, eventId);
         return new ResponseEntity<>(eventDto, HttpStatus.OK);
     }
 
-    @PutMapping("/users/{userId}/events/{id}")
-    public ResponseEntity<EventDto> updateEvent(@PathVariable(value = "userId") Long userId,
+    @PutMapping("/persons/{personId}/events/{id}")
+    public ResponseEntity<EventDto> updateEvent(@PathVariable(value = "personId") Long personId,
                                                     @PathVariable(value = "id") Long eventId,
                                                     @RequestBody EventDto eventDto) {
 
-        EventDto updatedEvent = eventService.updateEvent(userId, eventId, eventDto);
+        EventDto updatedEvent = eventService.updateEvent(personId, eventId, eventDto);
         return new ResponseEntity<>(updatedEvent, HttpStatus.OK);
     }
 
-    @DeleteMapping("/users/{userId}/events/{id}")
-    public ResponseEntity<String> deleteEvent(@PathVariable(value = "userId") Long userId,
+    @DeleteMapping("/persons/{personId}/events/{id}")
+    public ResponseEntity<String> deleteEvent(@PathVariable(value = "personId") Long personId,
                                                 @PathVariable(value = "id") Long eventId) {
-        eventService.deleteEvent(userId, eventId);
+        eventService.deleteEvent(personId, eventId);
         return new ResponseEntity<>("Event deleted successfully", HttpStatus.OK);
     }
 
