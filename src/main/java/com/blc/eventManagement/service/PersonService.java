@@ -54,7 +54,7 @@ public class PersonService {
         Person person = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Person","id",id));
         person.setEmail(personDto.getEmail());
         person.setName(personDto.getName());
-        person.setPassword(personDto.getPassword());
+
             Person updatedPerson = personRepository.save(person);
         return personMapper.mapToDTO(updatedPerson); //convert to dto for controller
     }

@@ -7,7 +7,7 @@ import com.blc.eventManagement.model.Person;
 import com.blc.eventManagement.repository.EventRepository;
 import com.blc.eventManagement.repository.PersonRepository;
 import com.blc.eventManagement.exception.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
