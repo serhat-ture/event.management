@@ -1,5 +1,6 @@
 package com.blc.eventManagement.controller;
 
+import com.blc.eventManagement.payload.JWTAuthResponse;
 import com.blc.eventManagement.payload.LoginDto;
 import com.blc.eventManagement.payload.RegisterDto;
 import com.blc.eventManagement.service.AuthService;
@@ -21,9 +22,13 @@ public class AuthController {
     }
 //login api
     @PostMapping(value = {"login","/signin"})
-    public ResponseEntity<String> login (@RequestBody LoginDto loginDto){
-        String response =authService.login(loginDto);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<JWTAuthResponse> login (@RequestBody LoginDto loginDto){
+        String token = authService.login(loginDto);
+
+        JWTAuthResponse jwtAuthResponse = new JWTAuthResponse();
+        jwtAuthResponse.setAccessToken(token);
+
+        return ResponseEntity.ok(jwtAuthResponse);
     }
 
     //register api

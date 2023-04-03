@@ -7,6 +7,7 @@ import com.blc.eventManagement.payload.LoginDto;
 import com.blc.eventManagement.payload.RegisterDto;
 import com.blc.eventManagement.repository.RoleRepository;
 import com.blc.eventManagement.repository.UserRepository;
+import com.blc.eventManagement.security.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,12 +26,19 @@ public class AuthService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    private JwtTokenProvider jwtTokenProvider;
 
-    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+
+    public AuthService(AuthenticationManager authenticationManager,
+                           UserRepository userRepository,
+                           RoleRepository roleRepository,
+                           PasswordEncoder passwordEncoder,
+                           JwtTokenProvider jwtTokenProvider) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
 
@@ -46,7 +54,9 @@ public class AuthService {
 
 
 
-        return "User logged in !! ";
+        String token = jwtTokenProvider.generateToken(authentication);
+
+        return token;
     }
 
 
