@@ -62,6 +62,7 @@ Java 17, Spring Boot 3, Spring Security 6, JWT, PostgreSQL, Lombok, Spring Data 
     "password":"zeynep"
 }
 ```
+register new user
 <img width="1019" alt="Screenshot 2023-04-03 at 13 28 31" src="https://user-images.githubusercontent.com/67038603/229497784-5bd6acce-54c4-4479-b7e9-f1413665936d.png">
 
 user zeynep added database
