@@ -19,8 +19,7 @@ Java 17, Spring Boot 3, Spring Security 6, JWT, PostgreSQL, Lombok, Spring Data 
   <li>config</li>
    <li>controller</li>
   <li>dto</li>
-  <li>entity</li>
-  <li>exception</li>
+    <li>exception</li>
   <li>mapper </li>
 <li>model </li>
   <li>repository</li>
