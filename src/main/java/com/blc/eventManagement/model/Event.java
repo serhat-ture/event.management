@@ -28,7 +28,7 @@ public class Event {
      private int participants;
 
     @ManyToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id", nullable = false)
-       private Person person;
+    @JoinColumn(name = "city_id", nullable = false)
+       private City city;
 
 }

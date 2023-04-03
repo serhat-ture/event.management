@@ -14,19 +14,19 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "persons")
-public class Person {
+@Table(name = "citys")
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private String email;
+    private String population;
 
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true )
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true )
            private Set<Event> events = new HashSet<>();
 
 }

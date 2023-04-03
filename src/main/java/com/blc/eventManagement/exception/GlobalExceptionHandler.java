@@ -1,6 +1,6 @@
 package com.blc.eventManagement.exception;
 
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
