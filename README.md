@@ -1,21 +1,64 @@
-# event.management
+## Event Management App
+The admin determines in which city the events will take place.\
+Admin can create city and also add an event to particular city.\
+Admin is authorized  all request.\
 
- Verilerinizi yönetmek için bir model olarak bir User ve Event sınıfı oluşturunuz.\
- Authorization işlemi (login) yaptırınız.\
-Aşağıda User classının sahip olması gereken fiedler mevcuttur.\
-name\
-email \
-password(encryption)\
+Regular user can create just event.\
+Each city may have multiple events and can be changeable.\
 
-Aşağıda Event classının sahip olması gereken fiedler mevcuttur.\
-etkinlik adı\
-başlangıç tarihi \
-bitiş tarihi\
-kota\
-katılımcı sayısı
+serhat and zeynep are standard user that they can see everything and add events, but have no authority to add new city.
 
-User ile Event classları ilişkilendirilecektir. Bu modeller için ekleme,\
-listeleme, güncelleme ve silme operasyonlarını içeren bir spring boot restful api örneği beklenmektedir.\
-Controllerin API isteğine JSON Objesi olarak dönmesi gerekmektedir. \
-İsteğe karşılık HTTP status kodlarının ayrıca eklenmesi beklenmektedir. \
-(Örn. Başarılı bir işlem için OK kodu olan 200 dönülebilir.) OOP yapısına uygun olarak geliştirilmelidir.
+## Technologies
+
+Java 17, Spring Boot 3, Spring Security 6, JWT, PostgreSQL, Lombok, Spring Data JPA ( Hibernate), Tomcat, Postman, Intellij IDEA
+
+
+## Project Structure
+
+<ul>
+  <li>config</li>
+   <li>controller</li>
+  <li>dto</li>
+  <li>entity</li>
+  <li>exception</li>
+  <li>mapper </li>
+<li>model </li>
+  <li>repository</li>
+<li>security</li>
+  <li>service</li>
+  <li>payload</li>
+
+</ul>
+
+## Authorization
+| Username | Password |
+|----------|----------|
+| admin    | admin    |
+| zeynep   | zeynep   |
+| serhat   | serhat   |
+
+
+
+| Type  | Method |
+|-------| ------ |
+| POST | http://localhost:8080/api/auth/register |
+
+```
+{
+    "name":"zeynep",
+    "username":"zeynep",
+    "email":"zeynep@gmail.com",
+    "password":"zeynep"
+}
+```
+
+| Type  | Method |
+|-------| ------ |
+| POST | http://localhost:8080/api/auth/signin |
+
+```
+{
+    "usernameOrEmail":"zeynep@gmail.com",
+    "password":"zeynep"
+}
+```
