@@ -22,7 +22,7 @@ public class CityService {
 
     public CityDto createCity(CityDto cityDto) {
         // Our REST API needs to return CityDto to the client hence we convert the saved City JPA entity object into CityDto.
-        // We need a City JPA entity to save the city object into the database hence we convert CityDto to a com.javahack.blog.entity.City JPA entity.
+        // We need a City JPA entity to save the city object into the database hence we convert CityDto to a entity.City JPA entity.
 
         // convert DTO to entity
         City city = cityMapper.mapToEntity(cityDto);
